@@ -46,9 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Liste des identifiants et mots de passe valides
         const USERS = {
-            "admin": "1234",       // Identifiant "admin" avec mot de passe "1234"
-            "rex": "admin2024",    // Identifiant "rex" avec mot de passe "admin2024"
-            "yellowjack": "YellowJACK" // Identifiant "yellowjack" pour accès spécial
+            "unicorn": "1458",       
+            "rex": "admin2024",    
+            "yellowjack": "YellowJACK",
+            "riverside": "1642,
+            "pacificb" : "8623",
+           "esthgs": "5481",
+           "esthvp": "3614",
+           "esthvn": "8951"
+        "esthsd": "3652"
+        
         };
 
         if (USERS[username] && USERS[username] === password) {
