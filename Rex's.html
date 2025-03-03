@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rex's Dîner</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("🔎 Vérification de l'authentification...");
+            if (!localStorage.getItem("authenticated")) {
+                console.log("⛔ Accès refusé. Redirection vers login.html");
+                window.location.href = "login.html";
+            } else {
+                console.log("✅ Accès autorisé !");
+            }
+        });
+    </script>
+</head>
+<script src="auth.js"></script>
+<script src="menu.js"></script>
+<body>
+    <header>
+        <img src="rex_logo.png" alt="Logo REXS DINER" class="logo" style="width: 80px;">
+        <h1>Bienvenue chez Rex's Dîner</h1>
+        <div class="logout-container">
+            <button id="logout-button" class="logout-btn">🚪 Déconnexion</button>
+        </div>
+    </header>
+    <main>
+        <div class="menu-buttons">
+            <button class="menu-tab" data-category="veggie">🌿 Menu Veggie</button>
+            <button class="menu-tab" data-category="viande">🥩 Menu Viande</button>
+            <button class="menu-tab" data-category="poisson">🐟 Menu Poisson</button>
+        </div>
+
+        <section id="menu" class="menu-container">
+
+            <!-- 🌱 Menu Veggie (affiché par défaut) -->
+            <div class="menu-category veggie">
+                <div class="item">
+                    <img src="Bronto.png" alt="Menu Bronto" class="menu-image">
+                    <p>Menu Bronto - 40$</p>
+                    <p class="description">Salade veggie + une boisson (Jus de carotte ou Soda Cola)</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Menu Bronto" data-price="40">Ajouter</button>
+                </div>
+            </div>
+        
+            <!-- 🐟 Menu Poisson (caché par défaut) -->
+            <div class="menu-category poisson" style="display: none;">
+                <div class="item">
+                    <img src="Indo.png" alt="Menu Indo" class="menu-image">
+                    <p>Menu Indo - 40$</p>
+                    <p class="description">Burger au poisson + une boisson</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Menu Indo" data-price="40">Ajouter</button>
+                </div>
+                <div class="item">
+                    <img src="Micro.png" alt="Menu Micro Raptor" class="menu-image">
+                    <p>Menu Micro Raptor - 45$</p>
+                    <p class="description">Pizza fruits de mer + une boisson</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Menu Micro Raptor" data-price="45">Ajouter</button>
+                </div>
+            </div>
+        
+            <!-- 🍖 Menu Viande (caché par défaut) -->
+            <div class="menu-category viande" style="display: none;">
+                <div class="item">
+                    <img src="Spino.png" alt="Menu Spino" class="menu-image">
+                    <p>Menu Spino - 60$</p>
+                    <p class="description">Steak frites + boisson</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Menu Spino" data-price="60">Ajouter</button>
+                </div>
+                <div class="item">
+                    <img src="Rex.png" alt="Menu Rex" class="menu-image">
+                    <p>Menu Rex - 65$</p>
+                    <p class="description">Burger arrêt du cœur + boisson</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Menu Rex" data-price="65">Ajouter</button>
+                </div>
+            </div>
+        
+        </section>
+        
+             
+        
+            <div class="cart-container">
+            <button id="cart-toggle" class="cart-btn">🛒 Voir le panier</button>
+        </div>
+        
+            <aside id="cart-sidebar" class="sidebar">
+                <button class="close-cart">✖</button>
+                <h2>🛒 Votre Panier</h2>
+                <div id="cart-content">
+                    <p>Votre panier est vide.</p>
+                </div>
+                <div id="client-info" style="display: none;">
+                    <h3>Informations Client</h3>
+                    <input type="text" id="client-name" placeholder="Votre nom">
+                    <input type="text" id="client-phone" placeholder="Votre téléphone">
+                    <input type="text" id="client-availability" placeholder="Disponibilité">
+                    <button id="validate-order">✅ Valider la commande</button>
+                </div>
+            </aside>
+            
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const logoutButton = document.getElementById("logout-button");
+            if (logoutButton) {
+                logoutButton.addEventListener("click", function () {
+                    localStorage.removeItem("authenticated");
+                    window.location.href = "login.html";
+                });
+            } else {
+                console.warn("⚠️ Bouton de déconnexion introuvable !");
+            }
+        });
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.removeItem("authenticated");
+            window.location.href = "login.html";
+        });
+        
+    </script>
+        <script src="cart.js"></script>
+        <script src="script.js"></script>
+    </body>
+    </html>
+    

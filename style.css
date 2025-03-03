@@ -1,0 +1,525 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffe6f2;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff6699;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur du menu */
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* Ajoute un espace entre les menus */
+}
+
+
+.add-to-cart {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #e6006f;
+}
+
+/* Volet du panier */
+#cart-sidebar {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 5px solid #ff6699;
+    z-index: 1000;
+}
+
+#cart-sidebar.open {
+    display: block; /* Réapparaît quand il est ouvert */
+}
+
+/* Bouton de fermeture */
+.close-cart {
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+}
+
+#cart-sidebar h2 {
+    color: #ff4081;
+    font-size: 22px;
+    text-align: center;
+}
+
+#cart-content {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du formulaire client */
+#client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#client-info input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#validate-order {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+#validate-order:hover {
+    background-color: #e6006f;
+}
+
+/* Mise à jour du menu */
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.item p {
+    font-weight: bold;
+}
+
+.item .description {
+    font-size: 14px;
+    color: #555;
+}
+.menu-image {
+    width: 150px; 
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.logo {
+    max-width: 120px; /* Taille du logo */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto; /* Centre l'image */
+}
+
+header h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+/* Affichage vertical des menus */
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style du bouton panier */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-icon {
+    width: 50px;
+    height: auto;
+}
+/* Styles des boutons de catégorie */
+.menu-buttons {
+    display: flex; /* Garde les boutons en ligne */
+    justify-content: center; /* Centre bien les boutons */
+    align-items: center; /* Alignement vertical correct */
+    gap: 15px; /* Espace entre chaque bouton */
+    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est trop petit */
+    margin-top: 20px;
+}
+
+.menu-tab {
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre l'icône et le texte */
+}
+
+.menu-tab:hover {
+    background-color: #e6006f;
+    transform: scale(1.05); /* Légère augmentation de taille */
+}
+
+
+/* Affichage du menu en mode catégories */
+.menu-category {
+    display: none; /* Caché par défaut */
+}
+
+.menu-category:first-child {
+    display: block; /* Affiche la première catégorie par défaut (veggie) */
+}
+.cart-button {
+    background-color: #ff6699;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #e6006f;
+}
+/* Style de la fenêtre modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.modal button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #e6006f;
+}
+.cart-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-button {
+    background-color: #ff6699;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: auto;
+}
+
+.cart-button:hover {
+    background-color: #e6006f;
+}
+.logout-btn {
+    background-color: #ff4081;  /* Rose */
+    color: white;               /* Texte blanc */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #e6006f; /* Couleur plus foncée au survol */
+    transform: scale(1.05);
+} 
+/* Style du panier */
+.cart-btn {
+    position: fixed; /* Fixe le panier en haut à droite */
+    top: 15px;
+    right: 15px;
+    background-color: #ff4081; /* Rose pour bien le voir */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px; /* Coins arrondis */
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre l'icône et le texte */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+.cart-btn:hover {
+    background-color: #d81b60; /* Couleur plus foncée au survol */
+}
+
+/* Icône panier */
+
+/* Ajustement pour mobile */
+@media (max-width: 768px) {
+    .cart-btn {
+        top: auto;
+        bottom: 15px; /* Passe en bas sur mobile */
+        right: 50%;
+        transform: translateX(50%);
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+.cart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Ajuste la marge selon tes besoins */
+}
+.cart-item .remove-btn {
+    background: #ff4d4d; /* Rouge vif */
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px; /* Arrondi */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-item .remove-btn:hover {
+    background: #cc0000; /* Rouge plus foncé au survol */
+}
+header {
+    display: flex;
+    flex-direction: column; /* Organise en colonne */
+    align-items: center; /* Centre tout horizontalement */
+    text-align: center;
+}
+
+.logout-container {
+    width: 100%; /* Prend toute la largeur */
+    display: flex;
+    justify-content: center; /* Centre le bouton */
+    margin-top: 10px;
+}
+
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #ff4b7b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#logout-button {
+    margin: 10px auto;
+    display: block;
+}
+/* Pour les écrans de moins de 768px (tablettes et téléphones) */
+@media screen and (max-width: 414px) { /* iPhone XR */
+    header {
+        flex-direction: column; /* Met les éléments en colonne */
+        text-align: center;
+    }
+
+    .logo {
+        width: 70px; /* Réduit la taille du logo */
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 22px; /* Réduit la taille du titre */
+    }
+
+    .logout-btn {
+        width: 90%; /* Largeur du bouton de déconnexion */
+        margin: 10px auto; /* Centre le bouton */
+    }
+
+    .menu-buttons {
+        display: flex; /* Affichage en ligne */
+        justify-content: center; /* Centre les boutons */
+        gap: 10px; /* Espacement entre les boutons */
+        margin-top: 20px;
+    }
+    
+    .menu-tab {
+        flex: 1;              /* Répartit l'espace équitablement */
+        min-width: auto;      /* Ajuste la largeur */
+        text-align: center;   /* Centre le texte */
+        font-size: 13px;      /* Taille du texte ajustée */
+        padding: 8px;         /* Espacement adapté */
+    }
+
+    .cart-btn {
+        font-size: 12px; /* Réduit la taille du texte */
+        padding: 8px;
+    }
+}
+/* Ajuste la taille et la position */
+.cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px; /* Réduire la largeur */
+    height: 100vh;
+    background-color: white;
+    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Cache le volet par défaut */
+}
+
+/* Quand le panier est ouvert */
+.cart.open {
+    transform: translateX(0);
+}
+
+/* Ajustement pour mobile */
+@media (max-width: 768px) {
+    .cart {
+        width: 80vw; /* S’adapte à la taille de l’écran */
+    }
+}
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 150px; /* Augmente la taille du logo sur mobile */
+    }
+}
+.password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Positionnement du bouton "œil" */
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-top: 5px; /* Espace entre le champ et le bouton */
+}
+
+#login-button {
+    margin-top: 10px; /* Ajoute un espace au-dessus du bouton */
+}
+/* Style du conteneur du bouton "eye" */
+.toggle-password-container {
+    text-align: center; /* Centrage du bouton */
+    margin-top: 10px; /* Ajoute un espace entre le champ et l'œil */
+    margin-bottom: 10px; /* Ajoute un espace entre l'œil et "Se connecter" */
+}
+
+/* Style du bouton "eye" */
+#toggle-password {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Ajoute de l'espace entre les champs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+

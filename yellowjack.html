@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YellowJACK Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("✅ DOM chargé, exécution du script...");
+
+        let platsCategory = document.querySelector(".menu-category.plats");
+
+        if (platsCategory) {
+            platsCategory.style.display = "block";
+        } else {
+            console.error("❌ L'élément .menu-category.plats est introuvable !");
+        }
+
+        const menuTabs = document.querySelectorAll(".menu-tab");
+        const menuCategories = document.querySelectorAll(".menu-category");
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                let category = tab.getAttribute("data-category");
+
+                menuCategories.forEach(menu => {
+                    if (menu.classList.contains(category)) {
+                        menu.style.display = "block";
+                    } else {
+                        menu.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+<body>
+    <header>
+        <img src="rex_logo.png" alt="Logo YellowJACK" class="logo" style="width: 80px;">
+        <h1> Bienvenue chez Rex's Dîner</h1>
+        <div class="logout-container">
+            <button id="logout-button" class="logout-btn">🚪 Déconnexion</button>
+        </div>
+    </header>
+
+    <main>
+        <h2 style="visibility: hidden;">.</h2>
+
+        <div class="menu-buttons">
+            <button class="menu-tab" data-category="plats">🍽️ Plats</button>
+            <button class="menu-tab" data-category="desserts">🍰 Desserts</button>
+            <button class="menu-tab" data-category="boissons">🍹 Boissons</button>
+        </div>
+    
+        <section id="menu" class="menu-container">
+            
+            <!-- 🍽️ Plats (affiché par défaut) -->
+            <div class="menu-category plats" style="display: block;">
+                <div class="item">
+                    <img src="arret.png" alt="Burger arrêt du coeur" class="menu-image">
+                    <p>Burger arrêt du coeur - 40$</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Burger arrêt du coeur" data-price="40">Ajouter</button>
+                </div>
+                <div class="item">
+                    <img src="salade.png" alt="Salade Veggie" class="menu-image">
+                    <p>Salade Veggie- 25$</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Salade Veggie" data-price="25">Ajouter</button>
+                </div>
+            </div>
+    
+       <!-- 🍰 Desserts (caché par défaut) -->
+<div class="menu-category desserts" style="display: none;">
+    <div class="item">
+        <img src="donut.png" alt="Donut" class="menu-image">
+        <p>Donut - 15$</p>
+        <input type="number" class="quantity" value="1" min="1">
+        <button class="add-to-cart" data-name="Donut" data-price="15">Ajouter</button>
+    </div>
+</div> <!-- 👈 Ajout de la fermeture correcte ici -->
+
+<!-- 🍹 Boissons (caché par défaut) -->
+<div class="menu-category boissons" style="display: none;">
+    <div class="item">
+        <img src="cafe.png" alt="café" class="menu-image">
+        <p>café - 7$</p>
+        <input type="number" class="quantity" value="1" min="1">
+        <button class="add-to-cart" data-name="café" data-price="7">Ajouter</button>
+    </div>
+</div> <!-- 👈 Maintenant "Boissons" est bien séparé -->
+            
+        </section>
+    </main>
+    
+
+    <!-- Bouton panier -->
+    <div class="cart-container">
+        <button id="cart-toggle" class="cart-btn">🛒 Voir le panier</button>
+    </div>
+
+    <aside id="cart-sidebar" class="sidebar">
+        <button class="close-cart">✖</button>
+        <h2>🛒 Votre Panier</h2>
+        <div id="cart-content">
+            <p>Votre panier est vide.</p>
+        </div>
+        <div id="client-info" style="display: none;">
+            <h3>Informations Client</h3>
+            <input type="text" id="client-name" placeholder="Votre nom">
+            <input type="text" id="client-phone" placeholder="Votre téléphone">
+            <input type="text" id="client-availability" placeholder="Disponibilité">
+            <button id="validate-order">✅ Valider la commande</button>
+        </div>
+    </aside>
+
+    <script>
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.clear();
+            window.location.href = "login.html";
+        });
+    </script>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

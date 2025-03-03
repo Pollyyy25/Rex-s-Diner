@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | Rex's Dîner </title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2;
+            margin: 0;
+            flex-direction: column;
+        }
+      /* Centrage du conteneur de connexion */
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* Alignement du champ de mot de passe */
+.password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; /* Espace sous le champ mot de passe */
+}
+
+/* Style du champ de saisie */
+.password-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Style du bouton "œil" */
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 5px; /* Espace entre le champ et l'œil */
+}
+
+/* Style du bouton de connexion */
+.login-container button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+/* Effet hover sur le bouton */
+.login-container button:hover {
+    background-color: #e6006f;
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="rex_logo.png" alt="Rex Diner Logo" class="logo">
+        <h2>Rex's Dîner</h2>
+        <div class="password-container">
+            <input type="text" id="username-input" name="username" placeholder="Entrez votre identifiant" required>
+            <input type="password" id="password-input" placeholder="Entrez le mot de passe">
+            <button id="toggle-password" class="toggle-password">👁️</button>
+        </div>
+        <button id="login-button">Se connecter</button>
+        <p id="error-message" style="color: red; display: none;">Mot de passe incorrect !</p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const PASSWORDS_YELLOWJACK = ["YellowJACK"];
+            const PASSWORDS_NORMAL = ["1M3", "admin2024", "rexDiner"];
+            const passwordInput = document.getElementById("password-input");
+            const togglePassword = document.getElementById("toggle-password");
+            const loginButton = document.getElementById("login-button");
+            
+            togglePassword.addEventListener("click", function() {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    togglePassword.textContent = "🙈";
+                } else {
+                    passwordInput.type = "password";
+                    togglePassword.textContent = "👁️";
+                }
+            });
+            
+            loginButton.addEventListener("click", function() {
+                const passwordValue = passwordInput.value.trim();
+                if (PASSWORDS_YELLOWJACK.includes(passwordValue)) {
+                    localStorage.setItem("menuType", "YellowJACK");
+                    localStorage.setItem("authenticated", "true");
+                    window.location.href = "yellowjack.html#plats";
+                } else if (PASSWORDS_NORMAL.includes(passwordValue)) {
+                    localStorage.setItem("menuType", "normal");
+                    localStorage.setItem("authenticated", "true");
+                    window.location.href = "Rex's.html";
+                } else {
+                    document.getElementById("error-message").style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
